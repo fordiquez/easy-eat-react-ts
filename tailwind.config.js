@@ -8,9 +8,9 @@ import defaultTheme from 'tailwindcss/defaultTheme';
 export default {
     content: ['index.html', './src/**/*.{js,jsx,ts,tsx}'],
     darkMode: 'class',
-    
+
     plugins: [forms, typography, aspectRatio, tailwindScrollbar],
-    
+
     theme: {
         extend: {
             fontFamily: {

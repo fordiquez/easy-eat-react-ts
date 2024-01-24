@@ -1,9 +1,9 @@
-import { useAppSelector } from "../../redux/hooks.ts";
-import { selectAccount, selectAvatar, selectFullName } from "../../redux/features/account/accountSlice.ts";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
+import { useAppSelector } from '../../redux/hooks.ts';
+import { selectAccount, selectAvatar, selectFullName } from '../../redux/features/account/accountSlice.ts';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleNotch } from '@fortawesome/free-solid-svg-icons';
 
 export const ProfilePage = () => {
     const account = useAppSelector(selectAccount);
@@ -13,7 +13,7 @@ export const ProfilePage = () => {
 
     useEffect(() => {
         if (!account.jwtToken) {
-            navigate("/sign-in");
+            navigate('/sign-in');
         }
     }, [account.jwtToken, navigate]);
 

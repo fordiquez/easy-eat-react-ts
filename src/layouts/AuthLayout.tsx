@@ -1,18 +1,18 @@
-import { Fragment, useEffect, useState } from "react";
-import { Outlet } from "react-router-dom";
-import { Dialog, Menu, Switch, Transition } from "@headlessui/react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faMoon, faSun, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { useDarkMode } from "usehooks-ts";
-import { classNames } from "../helpers";
-import { NavLink } from "../components/NavLink.tsx";
-import { useAppSelector } from "../redux/hooks.ts";
-import { selectAccount, selectAvatar, selectFullName } from "../redux/features/account/accountSlice.ts";
+import { Fragment, useEffect, useState } from 'react';
+import { Outlet } from 'react-router-dom';
+import { Dialog, Menu, Switch, Transition } from '@headlessui/react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faMoon, faSun, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { useDarkMode } from 'usehooks-ts';
+import { classNames } from '../helpers';
+import { NavLink } from '../components/NavLink.tsx';
+import { useAppSelector } from '../redux/hooks.ts';
+import { selectAccount, selectAvatar, selectFullName } from '../redux/features/account/accountSlice.ts';
 
 const navigation = [
-    { name: "Daily Log", to: "/daily-log" },
-    { name: "Onboarding", to: "/onboarding" },
-    { name: "Meal Plan", to: "/onboarding/meal-plan" }
+    { name: 'Daily Log', to: '/daily-log' },
+    { name: 'Onboarding', to: '/onboarding' },
+    { name: 'Meal Plan', to: '/onboarding/meal-plan' }
 ];
 
 export const AuthLayout = () => {
@@ -23,8 +23,8 @@ export const AuthLayout = () => {
     const accountFullName = useAppSelector(selectFullName);
 
     useEffect(() => {
-        document.body.classList.remove("light", "dark");
-        document.body.classList.add(isDarkMode ? "dark" : "light");
+        document.body.classList.remove('light', 'dark');
+        document.body.classList.add(isDarkMode ? 'dark' : 'light');
     }, [isDarkMode]);
 
     return (
@@ -59,22 +59,22 @@ export const AuthLayout = () => {
                             checked={isDarkMode}
                             onChange={toggle}
                             className={classNames(
-                                isDarkMode ? "bg-emerald-400" : "bg-slate-400",
-                                "relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-300 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500 focus-visible:transition-none dark:focus-visible:outline-emerald-400"
+                                isDarkMode ? 'bg-emerald-400' : 'bg-slate-400',
+                                'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-300 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500 focus-visible:transition-none dark:focus-visible:outline-emerald-400'
                             )}
                         >
                             <span
                                 className={classNames(
-                                    isDarkMode ? "translate-x-5" : "translate-x-0",
-                                    "pointer-events-none relative inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"
+                                    isDarkMode ? 'translate-x-5' : 'translate-x-0',
+                                    'pointer-events-none relative inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out'
                                 )}
                             >
                                 <span
                                     className={classNames(
                                         isDarkMode
-                                            ? "opacity-0 duration-100 ease-out"
-                                            : "opacity-100 duration-200 ease-in",
-                                        "absolute inset-0 flex h-full w-full items-center justify-center transition-opacity"
+                                            ? 'opacity-0 duration-100 ease-out'
+                                            : 'opacity-100 duration-200 ease-in',
+                                        'absolute inset-0 flex h-full w-full items-center justify-center transition-opacity'
                                     )}
                                 >
                                     <FontAwesomeIcon icon={faSun} className="h-3 w-3 text-emerald-500" />
@@ -82,9 +82,9 @@ export const AuthLayout = () => {
                                 <span
                                     className={classNames(
                                         isDarkMode
-                                            ? "opacity-100 duration-200 ease-in"
-                                            : "opacity-0 duration-100 ease-out",
-                                        "absolute inset-0 flex h-full w-full items-center justify-center transition-opacity"
+                                            ? 'opacity-100 duration-200 ease-in'
+                                            : 'opacity-0 duration-100 ease-out',
+                                        'absolute inset-0 flex h-full w-full items-center justify-center transition-opacity'
                                     )}
                                 >
                                     <FontAwesomeIcon icon={faMoon} className="h-3 w-3 text-slate-600" />
@@ -193,7 +193,7 @@ export const AuthLayout = () => {
                         className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-emerald-50 to-emerald-600 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
                         style={{
                             clipPath:
-                                "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
+                                'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)'
                         }}
                     />
                 </div>
@@ -210,7 +210,7 @@ export const AuthLayout = () => {
                         className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36rem] -translate-x-1/2 bg-gradient-to-tr from-emerald-600 to-emerald-50 opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72rem]"
                         style={{
                             clipPath:
-                                "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
+                                'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)'
                         }}
                     />
                 </div>

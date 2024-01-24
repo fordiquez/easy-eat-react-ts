@@ -1,18 +1,18 @@
-import { SubmitHandler, useForm } from "react-hook-form";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { Input } from "../../components/Input.tsx";
-import { NavLink } from "../../components/NavLink.tsx";
-import { PrimaryButton } from "../../components/PrimaryButton.tsx";
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { Input } from '../../components/Input.tsx';
+import { NavLink } from '../../components/NavLink.tsx';
+import { PrimaryButton } from '../../components/PrimaryButton.tsx';
 
 interface FormData {
     email: string;
 }
 
 const schema = yup.object({
-    email: yup.string().email().required().max(25).label("Email")
+    email: yup.string().email().required().max(25).label('Email')
 });
 
 export const ForgotPasswordPage = () => {
@@ -20,7 +20,7 @@ export const ForgotPasswordPage = () => {
         register,
         formState: { errors },
         handleSubmit
-    } = useForm<FormData>({ resolver: yupResolver(schema), mode: "all" });
+    } = useForm<FormData>({ resolver: yupResolver(schema), mode: 'all' });
 
     const onSubmit: SubmitHandler<FormData> = (data) => {
         alert(JSON.stringify(data));
@@ -48,7 +48,7 @@ export const ForgotPasswordPage = () => {
                                         className="h-4 w-4 text-emerald-500 dark:text-emerald-400"
                                     />
                                 }
-                                {...register("email")}
+                                {...register('email')}
                             />
                         </div>
 

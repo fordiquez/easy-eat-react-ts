@@ -1,13 +1,13 @@
-import React, { LegacyRef, ReactNode } from "react";
-import { classNames } from "../helpers";
-import { ErrorMessage, FieldValuesFromFieldErrors } from "@hookform/error-message";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
+import React, { LegacyRef, ReactNode } from 'react';
+import { classNames } from '../helpers';
+import { ErrorMessage, FieldValuesFromFieldErrors } from '@hookform/error-message';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 
 type InputProps = {
     id: string;
     label: string;
-    type?: "text" | "password" | "email" | "number" | "tel";
+    type?: 'text' | 'password' | 'email' | 'number' | 'tel';
     required?: boolean;
     errors?: FieldValuesFromFieldErrors<object>;
     prependIcon?: ReactNode;
@@ -16,15 +16,15 @@ type InputProps = {
 
 export const Input = React.forwardRef(
     (
-        { id, label, type = "text", required = true, errors, prependIcon, appendIcon, ...props }: InputProps,
+        { id, label, type = 'text', required = true, errors, prependIcon, appendIcon, ...props }: InputProps,
         ref: LegacyRef<HTMLInputElement> | undefined
     ) => (
         <>
             <label
                 htmlFor={id}
                 className={classNames(
-                    "mb-1 block cursor-pointer text-sm font-medium leading-6 dark:font-semibold",
-                    errors && errors[id] ? "text-rose-500" : "text-slate-900 dark:text-slate-50"
+                    'mb-1 block cursor-pointer text-sm font-medium leading-6 dark:font-semibold',
+                    errors && errors[id] ? 'text-rose-500' : 'text-slate-900 dark:text-slate-50'
                 )}
             >
                 {label}
@@ -38,12 +38,12 @@ export const Input = React.forwardRef(
                 <input
                     type={type}
                     className={classNames(
-                        "block w-full rounded-md border-0 py-2 font-medium text-slate-900 shadow-sm ring-1 ring-inset transition-all duration-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:transition-none dark:bg-slate-800 dark:text-slate-50 sm:text-sm sm:leading-6",
-                        prependIcon ? "pl-10" : "",
-                        appendIcon ? "pr-10" : "",
+                        'block w-full rounded-md border-0 py-2 font-medium text-slate-900 shadow-sm ring-1 ring-inset transition-all duration-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:transition-none dark:bg-slate-800 dark:text-slate-50 sm:text-sm sm:leading-6',
+                        prependIcon ? 'pl-10' : '',
+                        appendIcon ? 'pr-10' : '',
                         errors && errors[id]
-                            ? "ring-rose-500 focus:ring-rose-500"
-                            : "ring-slate-300 focus:ring-emerald-500 dark:ring-slate-600 dark:focus:ring-emerald-400"
+                            ? 'ring-rose-500 focus:ring-rose-500'
+                            : 'ring-slate-300 focus:ring-emerald-500 dark:ring-slate-600 dark:focus:ring-emerald-400'
                     )}
                     id={id}
                     ref={ref}

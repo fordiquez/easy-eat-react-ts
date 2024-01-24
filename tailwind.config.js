@@ -14,19 +14,19 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Inter', ...defaultTheme.fontFamily.sans],
+                sans: ['Inter', ...defaultTheme.fontFamily.sans]
             },
             spacing: {
                 4.5: '18px',
                 5.5: '22px',
                 7.5: '30px',
                 25: '100px',
-                70: '280px',
-            },
+                70: '280px'
+            }
         },
         screens: {
             xs: '380px',
-            ...defaultTheme.screens,
-        },
-    },
+            ...defaultTheme.screens
+        }
+    }
 };

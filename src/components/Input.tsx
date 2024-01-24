@@ -17,14 +17,14 @@ type InputProps = {
 export const Input = React.forwardRef(
     (
         { id, label, type = 'text', required = true, errors, prependIcon, appendIcon, ...props }: InputProps,
-        ref: LegacyRef<HTMLInputElement> | undefined,
+        ref: LegacyRef<HTMLInputElement> | undefined
     ) => (
         <>
             <label
                 htmlFor={id}
                 className={classNames(
                     'mb-1 block cursor-pointer text-sm font-medium leading-6 dark:font-semibold',
-                    errors && errors[id] ? 'text-rose-500' : 'text-slate-900 dark:text-slate-50',
+                    errors && errors[id] ? 'text-rose-500' : 'text-slate-900 dark:text-slate-50'
                 )}
             >
                 {label}
@@ -43,7 +43,7 @@ export const Input = React.forwardRef(
                         appendIcon ? 'pr-10' : '',
                         errors && errors[id]
                             ? 'ring-rose-500 focus:ring-rose-500'
-                            : 'ring-slate-300 focus:ring-emerald-500 dark:ring-slate-600 dark:focus:ring-emerald-400',
+                            : 'ring-slate-300 focus:ring-emerald-500 dark:ring-slate-600 dark:focus:ring-emerald-400'
                     )}
                     id={id}
                     ref={ref}
@@ -69,5 +69,5 @@ export const Input = React.forwardRef(
                 />
             )}
         </>
-    ),
+    )
 );

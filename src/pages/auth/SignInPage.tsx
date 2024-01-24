@@ -7,6 +7,10 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Input } from '../../components/Input.tsx';
 import { NavLink } from '../../components/NavLink.tsx';
 import { PrimaryButton } from '../../components/PrimaryButton.tsx';
+import { useAppDispatch } from '../../redux/hooks.ts';
+import { useAuthenticateMutation } from '../../redux/features/api/apiSlice.ts';
+import { AccountState, setUser } from '../../redux/features/account/accountSlice.ts';
+import { useNavigate } from 'react-router-dom';
 
 interface FormData {
     email: string;
@@ -15,20 +19,29 @@ interface FormData {
 
 const schema = yup.object({
     email: yup.string().email().required().max(25).label('Email'),
-    password: yup.string().required().label('Password'),
+    password: yup.string().required().label('Password')
 });
 
 export const SignInPage = () => {
     const [showPassword, setShowPassword] = useState(false);
+    const [authenticate, { isLoading }] = useAuthenticateMutation();
+    const dispatch = useAppDispatch();
+    const navigate = useNavigate();
 
     const {
         register,
         formState: { errors },
-        handleSubmit,
+        handleSubmit
     } = useForm<FormData>({ resolver: yupResolver(schema), mode: 'all' });
 
-    const onSubmit: SubmitHandler<FormData> = (data) => {
-        alert(JSON.stringify(data));
+    const onSubmit: SubmitHandler<FormData> = async (data) => {
+        try {
+            const account: AccountState = await authenticate(data).unwrap();
+            dispatch(setUser(account));
+            navigate('/profile');
+        } catch (error) {
+            console.log(error);
+        }
     };
     return (
         <>
@@ -81,7 +94,7 @@ export const SignInPage = () => {
                             />
                         </div>
 
-                        <PrimaryButton type='submit' className='w-full'>
+                        <PrimaryButton type='submit' className='w-full' loading={isLoading}>
                             Sign In
                         </PrimaryButton>
                     </form>

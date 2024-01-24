@@ -27,7 +27,7 @@ const schema = yup.object({
         .min(6)
         .max(25)
         .oneOf([yup.ref('password')], 'Passwords must match')
-        .label('Password Confirmation'),
+        .label('Password Confirmation')
 });
 
 export const SignUpPage = () => {
@@ -37,7 +37,7 @@ export const SignUpPage = () => {
     const {
         register,
         formState: { errors },
-        handleSubmit,
+        handleSubmit
     } = useForm<FormData>({ resolver: yupResolver(schema), mode: 'all' });
 
     const onSubmit: SubmitHandler<FormData> = (data) => {

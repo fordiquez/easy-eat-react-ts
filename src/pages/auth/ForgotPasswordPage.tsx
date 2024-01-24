@@ -12,14 +12,14 @@ interface FormData {
 }
 
 const schema = yup.object({
-    email: yup.string().email().required().max(25).label('Email'),
+    email: yup.string().email().required().max(25).label('Email')
 });
 
 export const ForgotPasswordPage = () => {
     const {
         register,
         formState: { errors },
-        handleSubmit,
+        handleSubmit
     } = useForm<FormData>({ resolver: yupResolver(schema), mode: 'all' });
 
     const onSubmit: SubmitHandler<FormData> = (data) => {

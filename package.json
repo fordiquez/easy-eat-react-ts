@@ -1,5 +1,7 @@
 {
     "name": "easy-eat-react-ts",
+    "author": "Ruslan Tsiapko",
+    "license": "ISC",
     "private": true,
     "version": "0.0.0",
     "type": "module",

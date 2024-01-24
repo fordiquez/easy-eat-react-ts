@@ -1,14 +1,14 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 // Define our single API slice object
 export const apiSlice = createApi({
-    reducerPath: 'api',
+    reducerPath: "api",
     baseQuery: fetchBaseQuery({
         baseUrl: import.meta.env.VITE_APP_BASE_API_URL
     }),
     endpoints: (builder) => ({
         authenticate: builder.mutation({
-            query: (credentials) => ({ url: '/accounts/authenticate', method: 'POST', body: credentials })
+            query: (credentials) => ({ url: "/accounts/authenticate", method: "POST", body: credentials })
         })
     })
 });

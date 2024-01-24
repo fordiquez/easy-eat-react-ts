@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '../../store.ts';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "../../store.ts";
 
 // Define a type for the slice state
 export interface AccountState {
@@ -19,18 +19,18 @@ export interface AccountState {
 
 // Define the initial state using that type
 const initialState: AccountState = {
-    id: '',
-    email: '',
-    firstName: '',
-    lastName: '',
-    role: '',
-    verified: '',
-    created: '',
-    jwtToken: ''
+    id: "",
+    email: "",
+    firstName: "",
+    lastName: "",
+    role: "",
+    verified: "",
+    created: "",
+    jwtToken: ""
 };
 
 export const accountSlice = createSlice({
-    name: 'account',
+    name: "account",
     // `createSlice` will infer the state type from the `initialState` argument
     initialState,
     reducers: {

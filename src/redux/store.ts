@@ -1,6 +1,6 @@
-import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
-import accountReducer from './features/account/accountSlice.ts';
-import { apiSlice } from './features/api/apiSlice.ts';
+import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
+import accountReducer from "./features/account/accountSlice.ts";
+import { apiSlice } from "./features/api/apiSlice.ts";
 
 export const store = configureStore({
     reducer: {
